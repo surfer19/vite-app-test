@@ -1,12 +1,11 @@
+import { Link } from "react-router-dom";
 import styles from "./PostLink.module.scss";
-// import Link from 'next/link';
 
-const PostLink = ({ id }) => {
+const PostLink = ({ id }: { id: number }) => {
   return (
-    // <Link className={styles.link} href={'posts/' + id} shallow={true}> {/* this shallow routing has no effect */}
-    <a className={styles.link}>Post {id}</a>
-    // {id}
-    // </Link>
+    <Link className={styles.link} to={"posts/" + id}>
+      <a className={styles.link}>{id}</a>
+    </Link>
   );
 };
 

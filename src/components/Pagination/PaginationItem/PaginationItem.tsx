@@ -1,18 +1,23 @@
-import styles from './PaginationItem.module.scss';
-import Link from 'next/link';
-import cn from 'classnames';
+import { Link } from "react-router-dom";
+import styles from "./PaginationItem.module.scss";
+import cn from "classnames";
 
-function PaginationItem({ isActive, index }) {
+function PaginationItem({
+  isActive,
+  index,
+}: {
+  isActive: boolean;
+  index: number;
+}) {
+  const itemClassName = cn(styles.item, {
+    [styles.active]: isActive,
+  });
 
-    const itemClassName = cn(styles.item, {
-        [styles.active]: isActive
-    })
-
-    return (
-        <Link className={itemClassName} href={'/posts/' + index} shallow={true}>
-            {index}
-        </Link>
-    )
+  return (
+    <Link className={itemClassName} to={"/posts/" + index}>
+      {index}
+    </Link>
+  );
 }
 
 export default PaginationItem;

@@ -1,14 +1,16 @@
 import "./styles/globals.scss";
 
 import Layout from "./components/Layout";
-import Posts from "./components/Posts";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <Layout>
       <div>
-        <h1 className="header">Welcome to blog app</h1>
-        <Posts />
+        {/* all the other elements */}
+        <div id="detail">
+          <Outlet />
+        </div>
       </div>
     </Layout>
   );
